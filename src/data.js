@@ -35,7 +35,7 @@ export default [
         coverImg: "edmonton.jpg",
         stats: {
             rating: 4.8,
-            reviewCount: 2
+            reviewCount: 98
         },
         location: "Edmonton, Alberta",
         openSpots: 3,
@@ -48,7 +48,7 @@ export default [
         coverImg: "react.jpg",
         stats: {
             rating: 4.8,
-            reviewCount: 2
+            reviewCount: 122
         },
         location: "Online",
         openSpots: 7,
