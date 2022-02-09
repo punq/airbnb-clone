@@ -1,44 +1,54 @@
 import React from "react"
-import Card1 from "../images/card1.png"
-import Star from "../images/star.png"
-import Wedding from "../images/wedding.png"
-import Bike from "../images/bike.png"
 
-/*
-Challenge: Build the Card component
-For now, hard-code in the data (like 
-the rating, title, price, etc.)
 
-Notes:
-- Only render 1 instance (I already did this for you)
-- The star icon and photo (katie-zaferes.png) are in the images 
-  folder for your use
-- Make sure to include:
-    - image
-    - star icon (star.png), rating, and review count
-    - title
-    - cost/person
-- The main purpose of this challenge is to show you where our limitations
-  currently are, so don't worry about the fact that you're hard-coding all
-  this data into the component.
-*/
+//old code
 
-export default function Card() {
+//import Wedding from "../images/wedding.png"
+//import Bike from "../images/bike.png"
+
+/* export default function Card(props) {
+  console.log(props)
     return (
-        <main className="container">
-            <img src={Card1} className="Card1"></img>
-            <img src={Star} className="Star"></img>
-            <p className="rating">5.0</p>
-            <p className="numofreviews">(6) - USA</p>
-            <p className="desc">Life lessons with Katie Zaferes</p>
-            <p className="price"> <strong>From $136</strong> / person</p>
-            
-            <img src={Wedding} className="Wedding"></img>
-            <img src={Star} className="Star"></img>
-            <p className="rating">5.0</p>
-            <p className="numofreviews">(6) - USA</p>
-            <p className="desc">Life lessons with Katie Zaferes</p>
-            <p className="price"> <strong>From $136</strong> / person</p>
-        </main>
+        <div className="container">
+            <img src={`../images/${props.img}`} className="card" alt="katie"></img>
+            <img src={Star} className="star"></img>
+            <span>{props.rating}</span>
+            <p className="numofreviews">({props.reviewCount})</p>
+            <p className="numofreviews">({props.country})</p>
+            <p className="desc">{props.title}</p>
+            <p className="price"> <strong>From ${props.price}</strong> / person</p>
+        </div>
+    )
+}
+*/ 
+
+
+export default function Card(props) {
+    let badgeText
+    if (props.item.openSpots === 0) {
+        badgeText = "SOLD OUT"
+    } else if (props.item.location === "Online") {
+        badgeText = "ONLINE"
+    }
+    
+    
+    return (
+        <div className="card">
+            {badgeText && <div className="card-badge">{badgeText}</div>}
+            <img 
+                src={`../images/${props.item.coverImg}`} 
+                className="card-image" 
+            />
+            <div className="card-stats">
+                <img src="../images/star.png" className="card-star" />
+                <span>{props.item.stats.rating}</span>
+                <span className="gray">({props.item.stats.reviewCount}) • </span>
+                <span className="gray">{props.item.location}</span>
+            </div>
+            <p className="card-title">{props.item.title}</p>
+            <p className="card-price">
+                <span className="bold">From ${props.item.price}</span> / person
+            </p>
+        </div>
     )
 }
