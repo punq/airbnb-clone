@@ -4,13 +4,16 @@
 }
 
 body {
-    
-    justify-content: center;
-    height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #EEEEEE
 }
 
+.app-container {
+    display: inline-block;   
+    ;
+}
 
 nav {
     height: 70px;

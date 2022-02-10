@@ -5,6 +5,7 @@ import Card from "./components/Card"
 import Data from "./data"
 import "./style.css"
 
+// Mapping each card into invididual items to display
 
 export default function App() {
     const cards = Data.map(item => {
@@ -17,13 +18,16 @@ export default function App() {
         )
     })        
     
+// Returning entire page contents 
     return (
         <div>
             <Navbar />
-            <Grid />
-            <section className="cards-list">
-                {cards}
-            </section>
+            <div className="app-container">
+                <Grid />
+                <section className="cards-list">
+                    {cards}
+                </section>
+            </div>
         </div>
     )
 }
